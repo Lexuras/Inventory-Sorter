@@ -1,0 +1,21 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Inventory Sorter Resources",
+    "description": "Companion resource pack for the Inventory Sorter add-on. Vanilla chest UI is not modified because JSON UI buttons cannot call Script API actions.",
+    "uuid": "11c789c4-2086-49b7-942f-24fd5df9d375",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 0]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "5977b74f-4493-4563-b1cb-ba73fd868fe8",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["Codex"],
+    "license": "MIT"
+  }
+}
