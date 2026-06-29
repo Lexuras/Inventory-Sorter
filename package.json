@@ -1,0 +1,15 @@
+{
+  "name": "bedrock-inventory-sorter",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check:js": "node --check behavior_pack/scripts/main.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "@minecraft/server": "^2.0.0",
+    "@minecraft/server-ui": "^2.0.0"
+  }
+}

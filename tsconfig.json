@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "ES2020",
+    "moduleResolution": "Bundler",
+    "rootDir": "behavior_pack/src",
+    "outDir": "behavior_pack/scripts",
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmitOnError": true
+  },
+  "include": ["behavior_pack/src/**/*.ts"]
+}
