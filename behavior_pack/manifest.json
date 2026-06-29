@@ -1,0 +1,42 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Inventory Sorter",
+    "description": "Achievement-friendly container and inventory management using supported Bedrock Script API forms.",
+    "uuid": "12ec5a32-762c-4223-ab17-13b86a1b103f",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 0]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "96fd38a3-df8d-423e-96de-3b58b6155353",
+      "version": [1, 0, 0]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "b97f3226-7b14-458f-9934-0d26bf489221",
+      "entry": "scripts/main.js",
+      "version": [1, 0, 0]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "11c789c4-2086-49b7-942f-24fd5df9d375",
+      "version": [1, 0, 0]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.0.0"
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": "2.0.0"
+    }
+  ],
+  "metadata": {
+    "authors": ["Codex"],
+    "license": "MIT"
+  }
+}
