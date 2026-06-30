@@ -22,14 +22,22 @@ const ACTIONS: Array<{ id: MenuAction; label: string; description: string }> = [
 ];
 
 const locks = new Map<string, string>();
+const openForms = new Set<string>();
 
 export async function openContainerMenu(player: Player, block: Block): Promise<void> {
   const key = getBlockKey(block);
+  const formKey = `${player.id}:${key}`;
+
+  if (openForms.has(formKey)) {
+    return;
+  }
 
   if (locks.has(key)) {
     player.sendMessage("Inventory Sorter: that container is already being managed.");
     return;
   }
+
+  openForms.add(formKey);
 
   const form = new ActionFormData()
     .title("Inventory Sorter")
@@ -53,6 +61,8 @@ export async function openContainerMenu(player: Player, block: Block): Promise<v
     runLocked(key, player, () => runAction(action.id, player, block));
   } catch (error) {
     player.sendMessage(`Inventory Sorter: ${errorMessage(error)}`);
+  } finally {
+    openForms.delete(formKey);
   }
 }
 

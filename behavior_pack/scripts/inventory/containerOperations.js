@@ -262,10 +262,12 @@ function insertIntoSlots(source, targetSlots, allowEmptySlots, slotOrder = order
     const placed = remaining.clone();
     placed.amount = Math.min(remaining.amount, max);
     targetSlots[targetIndex] = placed;
-    remaining.amount -= placed.amount;
 
-    if (remaining.amount <= 0) {
+    const leftoverAmount = remaining.amount - placed.amount;
+    if (leftoverAmount <= 0) {
       remaining = undefined;
+    } else {
+      remaining.amount = leftoverAmount;
     }
   }
 
@@ -284,9 +286,14 @@ function mergeIntoExistingStack(source, target) {
 
   const moved = Math.min(capacity, source.amount);
   target.amount += moved;
-  source.amount -= moved;
+  const leftoverAmount = source.amount - moved;
 
-  return source.amount > 0 ? source : undefined;
+  if (leftoverAmount <= 0) {
+    return undefined;
+  }
+
+  source.amount = leftoverAmount;
+  return source;
 }
 
 function orderedSlots(size) {
