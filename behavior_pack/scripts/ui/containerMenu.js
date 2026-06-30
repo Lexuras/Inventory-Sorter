@@ -20,6 +20,14 @@ const ACTIONS = [
 
 const locks = new Map();
 const openForms = new Set();
+const MENU_HELP = [
+  "Sort Container: tidy this storage.",
+  "Sort Inventory: tidy your inventory.",
+  "Quick Stack: move matching items in.",
+  "Deposit All: put items into storage.",
+  "Loot All: take items from storage.",
+  "Restock: refill matching stacks."
+].join("\n");
 
 export async function openContainerMenu(player, block) {
   const key = getBlockKey(block);
@@ -38,7 +46,7 @@ export async function openContainerMenu(player, block) {
 
   const form = new ActionFormData()
     .title("Inventory Sorter")
-    .body("Choose an action for this container. Normal use still opens the container; sneak + use opens this menu.");
+    .body(MENU_HELP);
 
   for (const action of ACTIONS) {
     form.button(action.label);
